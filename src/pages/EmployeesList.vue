@@ -61,7 +61,7 @@ export default {
       axios
         .get("https://jsonplaceholder.typicode.com/users")
         .then(({ data }) => {
-          this.employees = data;
+          this.employees = data.map(person => ({ ...person, edit: false }));
         })
         .finally(() => {
           this.loading = false;
