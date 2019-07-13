@@ -66,6 +66,9 @@ export default {
         .finally(() => {
           this.loading = false;
         });
+    },
+    editEmployee(person) {
+      person.edit = true;
     }
   }
 };
