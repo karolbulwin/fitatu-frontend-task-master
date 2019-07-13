@@ -93,6 +93,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .employees-list {
+  padding: 1em;
+
   &__header {
     font-size: 20px;
     padding: 0 0 10px;
