@@ -22,6 +22,9 @@ export default {
 .app {
   position: relative;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .pages-container {
