@@ -19,14 +19,21 @@
         <td>
           <a :href="`mailto:${ employee.email }`">{{employee.email}}</a>
         </td>
+        <td>
+          <EditButton v-on:click="editEmployee(employee)" text="Edit" />
+        </td>
       </tr>
     </table>
   </div>
 </template>
 <script>
+import EditButton from "@components/EmployeesList/EditButton";
 import axios from "axios";
 
 export default {
+  components: {
+    EditButton
+  },
   data() {
     return {
       loading: false,
