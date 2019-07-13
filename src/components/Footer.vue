@@ -8,8 +8,7 @@
   height: 70px;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   padding: 15px 50px;
   background-color: #f7f8f9;
@@ -18,6 +17,8 @@
   bottom: 0;
 
   &__fitatu-info {
+    display: flex;
+    justify-content: center;
     font-size: 12px;
     text-align: center;
     flex: 1;
