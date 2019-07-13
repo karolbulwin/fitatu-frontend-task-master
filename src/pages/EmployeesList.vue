@@ -9,6 +9,7 @@
         <th>Address</th>
         <th>Phone</th>
         <th>Email</th>
+        <th></th>
       </tr>
       <tr v-for="employee in employees" class="employees-list__list-row" v-bind:key="employee.id">
         <td>{{employee.id}}</td>
