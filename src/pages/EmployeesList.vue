@@ -1,35 +1,37 @@
 <template>
   <div class="page employees-list">
     <h1 :style="{display: loading? 'none' : 'block'}" class="employees-list__header">Employees</h1>
-    <div v-if="loading" class="employees-list__loading">Loading...</div>
-    <table v-else class="employees-list__list">
-      <tr class="employees-list__list-header">
-        <th>id</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th></th>
-      </tr>
-      <tr v-for="employee in employees" class="employees-list__list-row" v-bind:key="employee.id">
-        <td>{{employee.id}}</td>
-        <td>{{employee.name}}</td>
-        <td>{{employee.address.street}} {{employee.address.suite}} {{employee.address.city}}</td>
-        <td>{{employee.phone}}</td>
-        <td>
-          <a :href="`mailto:${ employee.email }`">{{employee.email}}</a>
-        </td>
-        <td>
-          <EmployeeEditingWindow
-            :employee="employee"
-            @save="saveEmployeeEdition"
-            @cancel="cancelEmployeeEdition(employee)"
-            v-if="employee.edit"
-          />
-          <EditButton v-on:click="editEmployee(employee)" text="Edit" />
-        </td>
-      </tr>
-    </table>
+    <div class="employees-list__table">
+      <div v-if="loading" class="employees-list__loading">Loading...</div>
+      <table v-else class="employees-list__list">
+        <tr class="employees-list__list-header">
+          <th>id</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+        <tr v-for="employee in employees" class="employees-list__list-row" v-bind:key="employee.id">
+          <td>{{employee.id}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.address.street}} {{employee.address.suite}} {{employee.address.city}}</td>
+          <td>{{employee.phone}}</td>
+          <td>
+            <a :href="`mailto:${ employee.email }`">{{employee.email}}</a>
+          </td>
+          <td>
+            <EmployeeEditingWindow
+              :employee="employee"
+              @save="saveEmployeeEdition"
+              @cancel="cancelEmployeeEdition(employee)"
+              v-if="employee.edit"
+            />
+            <EditButton v-on:click="editEmployee(employee)" text="Edit" />
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 <script>
@@ -94,6 +96,12 @@ export default {
   &__header {
     font-size: 20px;
     padding: 0 0 10px;
+  }
+
+  &__table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
   }
 
   &__loading {
