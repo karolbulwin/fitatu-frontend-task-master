@@ -20,6 +20,12 @@
           <a :href="`mailto:${ employee.email }`">{{employee.email}}</a>
         </td>
         <td>
+          <EmployeeEditingWindow
+            :employee="employee"
+            @save="saveEmployeeEdition"
+            @cancel="cancelEmployeeEdition(employee)"
+            v-if="employee.edit"
+          />
           <EditButton v-on:click="editEmployee(employee)" text="Edit" />
         </td>
       </tr>
@@ -28,11 +34,13 @@
 </template>
 <script>
 import EditButton from "@components/EmployeesList/EditButton";
+import EmployeeEditingWindow from "@components/EmployeesList/EmployeeEditingWindow";
 import axios from "axios";
 
 export default {
   components: {
-    EditButton
+    EditButton,
+    EmployeeEditingWindow
   },
   data() {
     return {
