@@ -69,6 +69,11 @@ export default {
     },
     editEmployee(person) {
       person.edit = true;
+    },
+    cancelEmployeeEdition(person) {
+      setTimeout(() => {
+        person.edit = false;
+      }, 300);
     }
   }
 };
