@@ -70,6 +70,17 @@ export default {
     editEmployee(person) {
       person.edit = true;
     },
+    saveEmployeeEdition(person) {
+      setTimeout(() => {
+        this.employees = this.employees.map(employee => {
+          if (employee.id === person.id) {
+            person.edit = false;
+            return (employee = person);
+          }
+          return employee;
+        });
+      }, 300);
+    },
     cancelEmployeeEdition(person) {
       setTimeout(() => {
         person.edit = false;
