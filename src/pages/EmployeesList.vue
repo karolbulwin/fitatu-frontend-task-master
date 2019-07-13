@@ -10,7 +10,7 @@
         <th>Phone</th>
         <th>Email</th>
       </tr>
-      <tr v-for="employee in employees" class="employees-list__list-row">
+      <tr v-for="employee in employees" class="employees-list__list-row" v-bind:key="employee.id">
         <td>{{employee.id}}</td>
         <td>{{employee.name}}</td>
         <td>{{employee.address.street}} {{employee.address.suite}} {{employee.address.city}}</td>
