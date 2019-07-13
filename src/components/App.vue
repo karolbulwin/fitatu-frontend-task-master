@@ -30,5 +30,6 @@ export default {
 .pages-container {
   max-width: 1080px;
   margin: 0 auto;
+  width: 100%;
 }
 </style>
