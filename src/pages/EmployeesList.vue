@@ -1,6 +1,6 @@
 <template>
   <div class="page employees-list">
-    <h1 class="employees-list__header">Employees</h1>
+    <h1 :style="{display: loading? 'none' : 'block'}" class="employees-list__header">Employees</h1>
     <div v-if="loading" class="employees-list__loading">Loading...</div>
     <table v-else class="employees-list__list">
       <tr class="employees-list__list-header">
